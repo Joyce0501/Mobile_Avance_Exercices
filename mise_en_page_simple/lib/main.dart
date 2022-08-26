@@ -96,23 +96,31 @@ class _MyHomePageState extends State<MyHomePage> {
 
                     Expanded(
                       child:
-                    Row(
+                    Column(
                       children: [
-                        Text(
-                          'Yo',
-                          style: TextStyle(color: Colors.red),
+                        Expanded(
+                          child: Row(
+                            children: [
+                              Text(
+                                'Yo',
+                                style: TextStyle(color: Colors.red),
+                              ),
+                            ],
+                          ),
                         ),
-                        Column(
-                          children: [
-                            Expanded(child: Container(
-                              color: Colors.white,
-                            ),
-                            ),
-                            Expanded(child: Container(
-                              color: Colors.black,
-                            ),
-                            ),
-                          ],
+                        Expanded(
+                          child: Row(
+                            children: [
+                              Expanded(child: Container(
+                                color: Colors.white,
+                              ),
+                              ),
+                              Expanded(child: Container(
+                                color: Colors.black,
+                              ),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                       // color: Colors.black,
