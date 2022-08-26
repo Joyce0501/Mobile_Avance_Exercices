@@ -75,33 +75,89 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Row(
-          children:[
-            Expanded(child:
+      body: Container(
+      color: Colors.black12,
+      //height: 500.0,
+      child: ListView(
+      scrollDirection: Axis.vertical,
+      children: <Widget> [
+
             Container(
               color: Colors.green,
-            ),
+              height: 200,
+              padding: const EdgeInsets.all(200.0),
             ),
 
-            Expanded(child:
+
+
             Container(
               color: Colors.white,
-            ),
+              height: 200,
             ),
 
-            Expanded(child:
+
+        // Container(
+        //   color: Colors.red,
+        //   height: 200,
+        // ),
+
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                color: Colors.red,
+                height: 200,
+              ),
+            ),
+
+
             Container(
-              color: Colors.red,
+              color: Colors.yellow,
+              height: 200,
             ),
-            ),
-          ]
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
 
-    );
+
+            Container(
+              color: Colors.lightBlue,
+              height: 200,
+              padding: const EdgeInsets.all(20.0),
+            ),
+
+
+
+            Container(
+              color: Colors.black,
+              height: 200,
+            ),
+
+
+            Container(
+              color: Colors.teal,
+              height: 200,
+            ),
+
+
+
+            Container(
+              color: Colors.purple,
+              height: 200,
+            ),
+
+
+
+            Container(
+              color: Colors.tealAccent,
+              height: 200,
+            ),
+
+
+            Container(
+              color: Colors.orange,
+              height: 200,
+            ),
+
+          ],
+    ),
+      ),
+      );
   }
 }
