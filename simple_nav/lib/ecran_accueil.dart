@@ -41,7 +41,6 @@ class _EcranAccueilState extends State<EcranAccueil> {
                 '/ecranb',
                 arguments: variable,
               );
-
             },
             child: Text('Vers le prochain Ecran '),
           ),
