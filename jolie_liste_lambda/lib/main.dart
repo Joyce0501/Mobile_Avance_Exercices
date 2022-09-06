@@ -1,7 +1,9 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 
   // int fibonacci(int n) => n <= 2 ? 1 : fibonacci(n - 2) + fibonacci (n - 1);
   //
@@ -13,22 +15,24 @@ void main() {
   //   }
   //   print(output + "...");
 
-
-    int n1=0,n2=1,n3;
-    print(n1);
-    print(n2);
-
-    for(int i = 2 ;i <= 16; i++){
-      n3 = n1+n2;
-      print('$n3');
-      n1 = n2;
-      n2 = n3;
-    }
+    //
+    // int n1=0,n2=1,n3;
+    // print(n1);
+    // print(n2);
+    //
+    // for(int i = 2 ;i <= 16; i++){
+    //   n3 = n1+n2;
+    //   print('$n3');
+    //   n1 = n2;
+    //   n2 = n3;
+    // }
 
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+ // const MyApp({Key? key}) : super(key: key);
+
+
 
   // This widget is the root of your application.
   @override
@@ -71,46 +75,63 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
   int _counter = 0;
   String valeur = "";
+
+  List<int>listeFibonacci = [];
 
   void _incrementCounter() {
     setState(() {
       _counter++;
-      this._finobacci();
     });
   }
 
   void _finobacci(){
-    int n1=0,n2=1,n3;
-    print(n1);
-    print(n2);
+    listeFibonacci = [];
+    int fn1=0,fn2=1,fn3;
+    listeFibonacci.add(fn1);
+    listeFibonacci.add(fn2);
 
     for(int i = 2 ;i <= 16; i++){
-      n3 = n1+n2;
-      print('$n3');
-      n1 = n2;
-      n2 = n3;
+      fn3 = fn1+fn2;
+
+      listeFibonacci.add(fn3);
+      fn1 = fn2;
+      fn2 = fn3;
     }
+
   }
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    _finobacci();
+  }
 
-    void initState() {
-      this._finobacci();
-    }
+
+  @override
+  Widget build(BuildContext context) {
 
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+
       ),
-      body: Center(
-
-
-      ),// This trailing comma makes auto-formatting nicer for build methods.
+      body: ListView.builder(
+        itemCount: listeFibonacci.length,
+        itemBuilder: (context,index) {
+          return Container(
+            padding: const EdgeInsets.all(20.0),
+            margin:  const EdgeInsets.all(20.0),
+            color: Colors.amber,
+            child: ListTile(
+              title: Text(listeFibonacci[index].toString())
+            ),
+          );
+        }
+      )
     );
   }
 }
