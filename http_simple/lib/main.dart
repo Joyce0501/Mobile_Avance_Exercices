@@ -80,3 +80,5 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+// DioError [DioErrorType.response]: XMLHttpRequest error.
