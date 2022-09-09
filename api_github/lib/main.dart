@@ -48,27 +48,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+  String nomRepos= "";
+
+  List<String>listeFibonacci = [];
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -81,15 +68,41 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+          TextField(
+          decoration: InputDecoration(labelText: "Nom",
+            labelStyle: TextStyle(fontSize: 14, color: Colors.grey),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(
+                  color: Colors.grey
+              ),
+            )),
+          onChanged: (nom) {
+            nomRepos = nom;
+          }
+         ),
 
+            ListView.builder(
+                itemCount: listeFibonacci.length,
+                itemBuilder: (context,index) {
+                  return Container(
+                    padding: const EdgeInsets.all(20.0),
+                    margin:  const EdgeInsets.all(20.0),
+                    color: Colors.amber,
+                    child: ListTile(
+                        title: Text(listeFibonacci[index].toString())
+                    ),
+                  );
+                }
+            )
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: _incrementCounter,
+      //   tooltip: 'Increment',
+      //   child: const Icon(Icons.add),
+      // ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
