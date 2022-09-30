@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -49,10 +51,9 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
+      body:(imagePath == "") ?
+
+         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(('Connexion'), style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50)),
@@ -84,6 +85,51 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       )),
                   obscureText: true,
+              ),
+            ),
+          ],
+        )
+      :
+
+      Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: FileImage(File(imagePath)),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(('Connexion'), style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50)),
+            Padding(
+              padding: const EdgeInsets.all(50),
+              child: TextFormField(
+                decoration: InputDecoration(labelText: ('Nom'),
+                    labelStyle: TextStyle(fontSize: 14, color: Colors.grey),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(
+                          color: Colors.grey
+                      ),
+                    )),
+              ),
+            ),
+            // const Text(
+            //   'Mot de passe',
+            // ),
+            Padding(
+              padding: const EdgeInsets.all(50),
+              child: TextFormField(
+                decoration: InputDecoration(labelText: ('Mot de passe'),
+                    labelStyle: TextStyle(fontSize: 14, color: Colors.grey),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(
+                          color: Colors.grey
+                      ),
+                    )),
+                obscureText: true,
               ),
             ),
           ],
