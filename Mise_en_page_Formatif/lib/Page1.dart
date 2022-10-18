@@ -17,7 +17,7 @@ class _Page1State extends State<Page1> {
     return Scaffold(
       drawer: LeTiroir(),
       appBar: AppBar(
-        title: Text("Page 1"),
+        title: Text("Page 1",textAlign: TextAlign.center,),
       ),
       body: Column(
           children:[

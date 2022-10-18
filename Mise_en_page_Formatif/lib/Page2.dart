@@ -16,7 +16,7 @@ class _Page2State extends State<Page2> {
     return Scaffold(
       drawer: LeTiroir(),
       appBar: AppBar(
-        title: Text("Page 2"),
+        title: Text("Page 2",textAlign: TextAlign.right)
       ),
       body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
