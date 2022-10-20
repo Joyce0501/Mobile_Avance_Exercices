@@ -17,9 +17,68 @@ class _Page1State extends State<Page1> {
     return Scaffold(
       drawer: LeTiroir(),
       appBar: AppBar(
-        title: Text("Page 1",textAlign: TextAlign.center,),
+        title: Text("Page 1",textAlign: TextAlign.center),
       ),
+      // body: Column(
+      //     children:[
+      //       Expanded(child:
+      //       Container(
+      //         color: Colors.deepPurple,
+      //       ),
+      //       ),
+      //       Expanded(child:
+      //       Container(
+      //         color: Colors.orange,
+      //       ),
+      //       ),
+      //     ]
+      // ),
+      body: OrientationBuilder(
+        builder: (context, orientation) {
+          if (orientation == Orientation.landscape) {
+            return buildPaysage();
+          } else {
+            return buildPortrait();
+          }
+        },
+      ),
+    );
+  }
+
+  Widget buildPortrait() {
+    // TODO: implement build
+
+    return Scaffold(
+      drawer: LeTiroir(),
+      // appBar: AppBar(
+      //   title: Text("Page 1",textAlign: TextAlign.center,),
+      // ),
       body: Column(
+          children:[
+            Expanded(child:
+            Container(
+              color: Colors.deepPurple,
+            ),
+            ),
+            Expanded(child:
+            Container(
+              color: Colors.orange,
+            ),
+            ),
+          ]
+      ),
+    );
+  }
+
+  Widget buildPaysage() {
+    // TODO: implement build
+
+    return Scaffold(
+      drawer: LeTiroir(),
+      // appBar: AppBar(
+      //   title: Text("Page 1",textAlign: TextAlign.center,),
+      // ),
+      body: Row(
           children:[
             Expanded(child:
             Container(
